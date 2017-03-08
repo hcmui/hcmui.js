@@ -1,4 +1,4 @@
-import $ from '../util/util';
+import $ from '../util_o/util';
 import dialog from '../dialog/dialog';
 
 /**

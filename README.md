@@ -1,4 +1,4 @@
-weui.js
+hcmui.js
 =====
 
 [![npm version](https://img.shields.io/npm/v/weui.js.svg)](https://www.npmjs.org/package/weui.js/)
@@ -15,7 +15,7 @@ weui.js
 
 ![https://weui.io](https://cloud.githubusercontent.com/assets/2395166/20742697/96705822-b70c-11e6-9486-c03a5939a1d6.png)
 
-[https://weui.io/weui.js/](https://weui.io/weui.js/)
+[https://weui.io/hcmui.js/](https://weui.io/weui.js/)
 
 
 ### 开发
@@ -23,8 +23,8 @@ weui.js
 安装
 
 ```shell
-git clone https://github.com/weui/weui.js.git
-cd weui.js
+git clone https://github.com/weui/hcmui.js.git
+cd hcmui.js
 npm install
 npm start
 ```
@@ -52,7 +52,7 @@ npm run build
 
 ```javascript
 import 'weui';
-import weui from 'weui.js';
+import weui from 'hcmui.js';
 
 weui.alert('alert');
 ```

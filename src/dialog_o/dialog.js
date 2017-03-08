@@ -1,4 +1,4 @@
-import $ from '../util/util';
+import $ from '../util_o/util';
 import tpl from './dialog.html';
 
 let _sington;
@@ -24,14 +24,14 @@ let _sington;
  *     buttons: [{
  *         label: '取消',
  *         type: 'default',
- *         onClick: function () { alert('取消') }
+ *         onClick: function () { alert_o('取消') }
  *     }, {
  *         label: '确定',
  *         type: 'primary',
- *         onClick: function () { alert('确定') }
+ *         onClick: function () { alert_o('确定') }
  *     }]
  * });
- * 
+ *
  * // 主动关闭
  * var $dialog = weui.dialog({...});
  * $dialog.hide(function(){

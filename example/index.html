@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="hcmui.sample">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <title>weui.js</title>
-    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.0/weui.min.css">
+    <title>hcmui.js.js</title>
+
     <style>
         html, body{
             height: 100%;
@@ -44,7 +44,7 @@
         }
     </style>
 </head>
-<body ontouchstart>
+<body ontouchstart ng-controller="HcmuiController">
 <p id="bear"></p>
 <div class="weui-tab" id="tab">
     <div class="weui-navbar">
@@ -54,9 +54,9 @@
         <div class="weui-navbar__item">其它</div>
     </div>
     <div class="weui-tab__panel">
-        <div class="weui-tab__content page_feedback">
-            <a href="javascript:;" id="alertBtn" class="weui-btn weui-btn_default">Alert</a>
-            <a href="javascript:;" id="confirmBtn" class="weui-btn weui-btn_default">Confirm</a>
+        <div class="weui-tab__content page_feedback" style="display: block">
+            <a href="javascript:;" id="alertBtn" class="weui-btn weui-btn_default" ng-click="$ctrl.alert()">Alert</a>
+            <a href="javascript:;" id="confirmBtn" class="weui-btn weui-btn_default" ng-click="$ctrl.confirm()">Confirm</a>
             <a href="javascript:;" id="toastBtn" class="weui-btn weui-btn_default">Toast</a>
             <a href="javascript:;" id="loadingBtn" class="weui-btn weui-btn_default">Loading</a>
             <a href="javascript:;" id="actionSheetBtn" class="weui-btn weui-btn_default">ActionSheet</a>

@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
@@ -18,26 +17,58 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'babel'
-            },
-            {
-                test: /\.html$/,
-                exclude: /node_modules/,
-                loader: 'html?minimize'
+                use: ['ng-annotate-loader', {
+                    loader: 'babel-loader',
+                    query: {
+                        presets: ['es2015']
+                    }
+                }]
             },
             {
                 test: /\.less$/,
                 exclude: /node_modules/,
-                loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]_[hash:base64:5]!postcss!less'
+                loaders: [
+                    'style-loader',
+                    'css-loader?importLoaders=1',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: function () {
+                                return [
+                                    require('precss'),
+                                    require('autoprefixer')
+                                ];
+                            }
+                        }
+                    },
+                    'less-loader'
+                ]
             },
             {
                 test: /\.css$/,
-                // exclude: /node_modules/,
-                loader: 'style!css!postcss'
+                loaders: [
+                    'style-loader',
+                    'css-loader?importLoaders=1',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: function () {
+                                return [
+                                    require('precss'),
+                                    require('autoprefixer')
+                                ];
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.html$/,
+                loader: 'raw-loader',
+                exclude: /node_modules/
             }
         ]
     },
-    postcss: [autoprefixer],
     plugins: [
         new webpack.DefinePlugin({
             NODE_ENV: '"dev"',

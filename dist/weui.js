@@ -183,14 +183,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *     buttons: [{
 	 *         label: '取消',
 	 *         type: 'default',
-	 *         onClick: function () { alert('取消') }
+	 *         onClick: function () { alert_o('取消') }
 	 *     }, {
 	 *         label: '确定',
 	 *         type: 'primary',
-	 *         onClick: function () { alert('确定') }
+	 *         onClick: function () { alert_o('确定') }
 	 *     }]
 	 * });
-	 * 
+	 *
 	 * // 主动关闭
 	 * var $dialog = weui.dialog({...});
 	 * $dialog.hide(function(){
@@ -818,7 +818,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
-	 * alert 警告弹框，功能类似于浏览器自带的 alert 弹框，用于提醒、警告用户简单扼要的信息，只有一个“确认”按钮，点击“确认”按钮后关闭弹框。
+	 * alert_o 警告弹框，功能类似于浏览器自带的 alert_o 弹框，用于提醒、警告用户简单扼要的信息，只有一个“确认”按钮，点击“确认”按钮后关闭弹框。
 	 * @param {string} content 弹窗内容
 	 * @param {function=} yes 点击确定按钮的回调
 	 * @param {object=} options 配置项
@@ -827,18 +827,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {array=} options.buttons 按钮配置项，详情参考dialog
 	 *
 	 * @example
-	 * weui.alert('普通的alert');
-	 * weui.alert('带回调的alert', function(){ console.log('ok') });
-	 * var alertDom = weui.alert('手动关闭的alert', function(){
+	 * weui.alert_o('普通的alert');
+	 * weui.alert_o('带回调的alert', function(){ console.log('ok') });
+	 * var alertDom = weui.alert_o('手动关闭的alert', function(){
 	 *     return false; // 不关闭弹窗，可用alertDom.hide()来手动关闭
 	 * });
-	 * weui.alert('自定义标题的alert', { title: '自定义标题' });
-	 * weui.alert('带回调的自定义标题的alert', function(){
+	 * weui.alert_o('自定义标题的alert', { title: '自定义标题' });
+	 * weui.alert_o('带回调的自定义标题的alert', function(){
 	 *    console.log('ok')
 	 * }, {
 	 *    title: '自定义标题'
 	 * });
-	 * weui.alert('自定义按钮的alert', {
+	 * weui.alert_o('自定义按钮的alert', {
 	 *     title: '自定义按钮的alert',
 	 *     buttons: [{
 	 *         label: 'OK',
@@ -1301,7 +1301,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *     className: 'custom-classname',
 	 *     callback: function(){ console.log('close') }
 	 * });
-	 * 
+	 *
 	 * // 主动关闭
 	 * var $topTips = weui.topTips('请填写正确的字段');
 	 * $topTips.hide(function() {
@@ -1815,19 +1815,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *        // `this` 是轮询到的文件, `files` 是所有文件
 	 *
 	 *        if(["image/jpg", "image/jpeg", "image/png", "image/gif"].indexOf(this.type) < 0){
-	 *            weui.alert('请上传图片');
+	 *            weui.alert_o('请上传图片');
 	 *            return false; // 阻止文件添加
 	 *        }
 	 *        if(this.size > 10 * 1024 * 1024){
-	 *            weui.alert('请上传不超过10M的图片');
+	 *            weui.alert_o('请上传不超过10M的图片');
 	 *            return false;
 	 *        }
 	 *        if (files.length > 5) { // 防止一下子选择过多文件
-	 *            weui.alert('最多只能上传5张图片，请重新选择');
+	 *            weui.alert_o('最多只能上传5张图片，请重新选择');
 	 *            return false;
 	 *        }
 	 *        if (uploadCount + 1 > 5) {
-	 *            weui.alert('最多只能上传5张图片');
+	 *            weui.alert_o('最多只能上传5张图片');
 	 *            return false;
 	 *        }
 	 *

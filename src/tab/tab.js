@@ -1,4 +1,4 @@
-import $ from '../util/util';
+import $ from '../util_o/util';
 
 /**
  * tab tab导航栏

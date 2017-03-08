@@ -1,4 +1,4 @@
-import $ from '../util/util';
+import $ from '../util_o/util';
 
 /**
  * slider slider滑块，单位是百分比。注意，因为需要获取slider的长度，所以必须要在slider可见的情况下来调用。

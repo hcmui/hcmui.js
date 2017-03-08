@@ -1,4 +1,4 @@
-import $ from '../util/util';
+import $ from '../util_o/util';
 import tpl from './loading.html';
 
 let _sington;

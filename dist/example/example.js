@@ -950,9 +950,9 @@
 
 				if (!deviceIsIOS4) {
 
-					// Weird things happen on iOS when an alert or confirm dialog is opened from a click event callback (issue #23):
+					// Weird things happen on iOS when an alert_o or confirm dialog is opened from a click event callback (issue #23):
 					// when the user next taps anywhere else on the page, new touchstart and touchend events are dispatched
-					// with the same identifier as the touch event that previously triggered the click that triggered the alert.
+					// with the same identifier as the touch event that previously triggered the click that triggered the alert_o.
 					// Sadly, there is an issue on iOS 4 that causes some normal touch events to have the same identifier as an
 					// immediately preceeding touch event (issue #52), so this fix is unavailable on that platform.
 					// Issue 120: touch.identifier is 0 when Chrome dev tools 'Emulate touch events' is set with an iOS device UA string,
@@ -1510,14 +1510,14 @@
 	 *     buttons: [{
 	 *         label: '取消',
 	 *         type: 'default',
-	 *         onClick: function () { alert('取消') }
+	 *         onClick: function () { alert_o('取消') }
 	 *     }, {
 	 *         label: '确定',
 	 *         type: 'primary',
-	 *         onClick: function () { alert('确定') }
+	 *         onClick: function () { alert_o('确定') }
 	 *     }]
 	 * });
-	 * 
+	 *
 	 * // 主动关闭
 	 * var $dialog = weui.dialog({...});
 	 * $dialog.hide(function(){
@@ -2145,7 +2145,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
-	 * alert 警告弹框，功能类似于浏览器自带的 alert 弹框，用于提醒、警告用户简单扼要的信息，只有一个“确认”按钮，点击“确认”按钮后关闭弹框。
+	 * alert_o 警告弹框，功能类似于浏览器自带的 alert_o 弹框，用于提醒、警告用户简单扼要的信息，只有一个“确认”按钮，点击“确认”按钮后关闭弹框。
 	 * @param {string} content 弹窗内容
 	 * @param {function=} yes 点击确定按钮的回调
 	 * @param {object=} options 配置项
@@ -2154,18 +2154,18 @@
 	 * @param {array=} options.buttons 按钮配置项，详情参考dialog
 	 *
 	 * @example
-	 * weui.alert('普通的alert');
-	 * weui.alert('带回调的alert', function(){ console.log('ok') });
-	 * var alertDom = weui.alert('手动关闭的alert', function(){
+	 * weui.alert_o('普通的alert');
+	 * weui.alert_o('带回调的alert', function(){ console.log('ok') });
+	 * var alertDom = weui.alert_o('手动关闭的alert', function(){
 	 *     return false; // 不关闭弹窗，可用alertDom.hide()来手动关闭
 	 * });
-	 * weui.alert('自定义标题的alert', { title: '自定义标题' });
-	 * weui.alert('带回调的自定义标题的alert', function(){
+	 * weui.alert_o('自定义标题的alert', { title: '自定义标题' });
+	 * weui.alert_o('带回调的自定义标题的alert', function(){
 	 *    console.log('ok')
 	 * }, {
 	 *    title: '自定义标题'
 	 * });
-	 * weui.alert('自定义按钮的alert', {
+	 * weui.alert_o('自定义按钮的alert', {
 	 *     title: '自定义按钮的alert',
 	 *     buttons: [{
 	 *         label: 'OK',
@@ -2628,7 +2628,7 @@
 	 *     className: 'custom-classname',
 	 *     callback: function(){ console.log('close') }
 	 * });
-	 * 
+	 *
 	 * // 主动关闭
 	 * var $topTips = weui.topTips('请填写正确的字段');
 	 * $topTips.hide(function() {
@@ -3142,19 +3142,19 @@
 	 *        // `this` 是轮询到的文件, `files` 是所有文件
 	 *
 	 *        if(["image/jpg", "image/jpeg", "image/png", "image/gif"].indexOf(this.type) < 0){
-	 *            weui.alert('请上传图片');
+	 *            weui.alert_o('请上传图片');
 	 *            return false; // 阻止文件添加
 	 *        }
 	 *        if(this.size > 10 * 1024 * 1024){
-	 *            weui.alert('请上传不超过10M的图片');
+	 *            weui.alert_o('请上传不超过10M的图片');
 	 *            return false;
 	 *        }
 	 *        if (files.length > 5) { // 防止一下子选择过多文件
-	 *            weui.alert('最多只能上传5张图片，请重新选择');
+	 *            weui.alert_o('最多只能上传5张图片，请重新选择');
 	 *            return false;
 	 *        }
 	 *        if (uploadCount + 1 > 5) {
-	 *            weui.alert('最多只能上传5张图片');
+	 *            weui.alert_o('最多只能上传5张图片');
 	 *            return false;
 	 *        }
 	 *

@@ -1,4 +1,4 @@
-import $ from '../util/util';
+import $ from '../util_o/util';
 import tpl from './topTips.html';
 
 let _toptips = null;
@@ -20,7 +20,7 @@ let _toptips = null;
  *     className: 'custom-classname',
  *     callback: function(){ console.log('close') }
  * });
- * 
+ *
  * // 主动关闭
  * var $topTips = weui.topTips('请填写正确的字段');
  * $topTips.hide(function() {

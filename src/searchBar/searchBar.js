@@ -1,4 +1,4 @@
-import $ from '../util/util';
+import $ from '../util_o/util';
 
 /**
  * searchbar 搜索框，主要实现搜索框组件一些显隐逻辑

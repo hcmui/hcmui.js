@@ -1,4 +1,4 @@
-import $ from '../util/util';
+import $ from '../util_o/util';
 import tpl from './actionSheet.html';
 
 let _sington;
