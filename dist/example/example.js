@@ -68,7 +68,7 @@
 	    });
 	});
 
-	/* confirm */
+	/* .confirm */
 	document.querySelector('#confirmBtn').addEventListener('click', function () {
 	    _weui2.default.confirm('自定义标题的confirm', function () {
 	        console.log('yes');
@@ -79,7 +79,7 @@
 	    });
 	});
 
-	/* toast */
+	/* .toast */
 	document.querySelector('#toastBtn').addEventListener('click', function () {
 	    _weui2.default.toast('操作成功', {
 	        duration: 3000,
@@ -87,7 +87,7 @@
 	    });
 	});
 
-	/* loading */
+	/* .loading */
 	document.querySelector('#loadingBtn').addEventListener('click', function () {
 	    var loading = _weui2.default.loading('loading');
 	    setTimeout(function () {
@@ -95,7 +95,7 @@
 	    }, 3000);
 	});
 
-	/* actionSheet */
+	/* .actionSheet */
 	document.querySelector('#actionSheetBtn').addEventListener('click', function () {
 	    _weui2.default.actionSheet([{
 	        label: '拍照',
@@ -950,9 +950,9 @@
 
 				if (!deviceIsIOS4) {
 
-					// Weird things happen on iOS when an alert_o or confirm dialog is opened from a click event callback (issue #23):
+					// Weird things happen on iOS when an .alert or .confirm dialog is opened from a click event callback (issue #23):
 					// when the user next taps anywhere else on the page, new touchstart and touchend events are dispatched
-					// with the same identifier as the touch event that previously triggered the click that triggered the alert_o.
+					// with the same identifier as the touch event that previously triggered the click that triggered the .alert.
 					// Sadly, there is an issue on iOS 4 that causes some normal touch events to have the same identifier as an
 					// immediately preceeding touch event (issue #52), so this fix is unavailable on that platform.
 					// Issue 120: touch.identifier is 0 when Chrome dev tools 'Emulate touch events' is set with an iOS device UA string,
@@ -1510,11 +1510,11 @@
 	 *     buttons: [{
 	 *         label: '取消',
 	 *         type: 'default',
-	 *         onClick: function () { alert_o('取消') }
+	 *         onClick: function () { .alert('取消') }
 	 *     }, {
 	 *         label: '确定',
 	 *         type: 'primary',
-	 *         onClick: function () { alert_o('确定') }
+	 *         onClick: function () { .alert('确定') }
 	 *     }]
 	 * });
 	 *
@@ -2085,7 +2085,7 @@
 									: document[s_querySelectorAll](s) // else select elements globally
 							: typeof s == 'function' // else if function is passed
 								// if DOM is ready
-								// readyState[7] means readyState value is "interactive" or "complete" (not "loading")
+								// readyState[7] means readyState value is "interactive" or "complete" (not ".loading")
 								? document.readyState[7]
 									? s() // then run given function
 									: document[s_addEventListener]('DOMContentLoaded', s) // else wait for DOM ready
@@ -2145,7 +2145,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/**
-	 * alert_o 警告弹框，功能类似于浏览器自带的 alert_o 弹框，用于提醒、警告用户简单扼要的信息，只有一个“确认”按钮，点击“确认”按钮后关闭弹框。
+	 * .alert 警告弹框，功能类似于浏览器自带的 .alert 弹框，用于提醒、警告用户简单扼要的信息，只有一个“确认”按钮，点击“确认”按钮后关闭弹框。
 	 * @param {string} content 弹窗内容
 	 * @param {function=} yes 点击确定按钮的回调
 	 * @param {object=} options 配置项
@@ -2154,18 +2154,18 @@
 	 * @param {array=} options.buttons 按钮配置项，详情参考dialog
 	 *
 	 * @example
-	 * weui.alert_o('普通的alert');
-	 * weui.alert_o('带回调的alert', function(){ console.log('ok') });
-	 * var alertDom = weui.alert_o('手动关闭的alert', function(){
+	 * weui..alert('普通的alert');
+	 * weui..alert('带回调的alert', function(){ console.log('ok') });
+	 * var alertDom = weui..alert('手动关闭的alert', function(){
 	 *     return false; // 不关闭弹窗，可用alertDom.hide()来手动关闭
 	 * });
-	 * weui.alert_o('自定义标题的alert', { title: '自定义标题' });
-	 * weui.alert_o('带回调的自定义标题的alert', function(){
+	 * weui..alert('自定义标题的alert', { title: '自定义标题' });
+	 * weui..alert('带回调的自定义标题的alert', function(){
 	 *    console.log('ok')
 	 * }, {
 	 *    title: '自定义标题'
 	 * });
-	 * weui.alert_o('自定义按钮的alert', {
+	 * weui..alert('自定义按钮的alert', {
 	 *     title: '自定义按钮的alert',
 	 *     buttons: [{
 	 *         label: 'OK',
@@ -2231,16 +2231,16 @@
 	 * @param {array=} options.buttons 按钮配置项，详情参考dialog
 	 *
 	 * @example
-	 * weui.confirm('普通的confirm');
-	 * weui.confirm('自定义标题的confirm', { title: '自定义标题' });
-	 * weui.confirm('带回调的confirm', function(){ console.log('yes') }, function(){ console.log('no') });
-	 * var confirmDom = weui.confirm('手动关闭的confirm', function(){
+	 * weui..confirm('普通的confirm');
+	 * weui..confirm('自定义标题的confirm', { title: '自定义标题' });
+	 * weui..confirm('带回调的confirm', function(){ console.log('yes') }, function(){ console.log('no') });
+	 * var confirmDom = weui..confirm('手动关闭的confirm', function(){
 	 *     return false; // 不关闭弹窗，可用confirmDom.hide()来手动关闭
 	 * });
-	 * weui.confirm('带回调的自定义标题的confirm', function(){ console.log('yes') }, function(){ console.log('no') }, {
+	 * weui..confirm('带回调的自定义标题的confirm', function(){ console.log('yes') }, function(){ console.log('no') }, {
 	 *     title: '自定义标题'
 	 * });
-	 * weui.confirm('自定义按钮的confirm', {
+	 * weui..confirm('自定义按钮的confirm', {
 	 *     title: '自定义按钮的confirm',
 	 *     buttons: [{
 	 *         label: 'NO',
@@ -2308,7 +2308,7 @@
 	var _sington = void 0;
 
 	/**
-	 * toast 一般用于操作成功时的提示场景
+	 * .toast 一般用于操作成功时的提示场景
 	 * @param {string} content toast的文字
 	 * @param {Object|function=} options 配置项或回调
 	 * @param {number=} [options.duration=3000] 多少毫秒后关闭toast
@@ -2316,8 +2316,8 @@
 	 * @param {string=} options.className 自定义类名
 	 *
 	 * @example
-	 * weui.toast('操作成功', 3000);
-	 * weui.toast('操作成功', {
+	 * weui..toast('操作成功', 3000);
+	 * weui..toast('操作成功', {
 	 *     duration: 3000,
 	 *     className: 'custom-classname',
 	 *     callback: function(){ console.log('close') }
@@ -2348,7 +2348,7 @@
 	    }, options);
 
 	    var $toastWrap = (0, _util2.default)(_util2.default.render(_toast2.default, options));
-	    var $toast = $toastWrap.find('.weui-toast');
+	    var $toast = $toastWrap.find('.weui-.toast');
 	    var $mask = $toastWrap.find('.weui-mask');
 
 	    (0, _util2.default)('body').append($toastWrap);
@@ -2374,7 +2374,7 @@
 /* 12 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"<%= className %>\"> <div class=weui-mask_transparent></div> <div class=weui-toast> <i class=\"weui-icon_toast weui-icon-success-no-circle\"></i> <p class=weui-toast__content><%=content%></p> </div> </div> ";
+	module.exports = "<div class=\"<%= className %>\"> <div class=weui-mask_transparent></div> <div class=weui-.toast> <i class=\"weui-icon_toast weui-icon-success-no-circle\"></i> <p class=weui-toast__content><%=content%></p> </div> </div> ";
 
 /***/ },
 /* 13 */
@@ -2399,18 +2399,18 @@
 	var _sington = void 0;
 
 	/**
-	 * loading
+	 * .loading
 	 * @param {string} content loading的文字
 	 * @param {object=} options 配置项
 	 * @param {string=} options.className 自定义类名
 	 *
 	 * @example
-	 * var loading = weui.loading('loading', {
+	 * var .loading = weui..loading('.loading', {
 	 *     className: 'custom-classname'
 	 * });
 	 * setTimeout(function () {
-	 *     loading.hide(function() {
-	 *          console.log('`loading` has been hidden');
+	 *     .loading.hide(function() {
+	 *          console.log('`.loading` has been hidden');
 	 *      });
 	 * }, 3000);
 	 */
@@ -2426,7 +2426,7 @@
 	    }, options);
 
 	    var $loadingWrap = (0, _util2.default)(_util2.default.render(_loading2.default, options));
-	    var $loading = $loadingWrap.find('.weui-toast');
+	    var $loading = $loadingWrap.find('.weui-.toast');
 	    var $mask = $loadingWrap.find('.weui-mask');
 
 	    function _hide(callback) {
@@ -2458,7 +2458,7 @@
 /* 14 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"weui-loading_toast <%= className %>\"> <div class=weui-mask_transparent></div> <div class=weui-toast> <i class=\"weui-loading weui-icon_toast\"></i> <p class=weui-toast__content><%=content%></p> </div> </div> ";
+	module.exports = "<div class=\"weui-loading_toast <%= className %>\"> <div class=weui-mask_transparent></div> <div class=weui-.toast> <i class=\"weui-.loading weui-icon_toast\"></i> <p class=weui-toast__content><%=content%></p> </div> </div> ";
 
 /***/ },
 /* 15 */
@@ -2496,7 +2496,7 @@
 	 * @param {string=} options.className 自定义类名
 	 *
 	 * @example
-	 * weui.actionSheet([
+	 * weui..actionSheet([
 	 *     {
 	 *         label: '拍照',
 	 *         onClick: function () {
@@ -2988,10 +2988,10 @@
 	 * // weui.form.validate('#form', function(error){ console.log(error);}); // error: {dom:[Object], msg:[String]}
 	 * weui.form.validate('#form', function (error) {
 	 *     if (!error) {
-	 *         var loading = weui.loading('提交中...');
+	 *         var .loading = weui..loading('提交中...');
 	 *         setTimeout(function () {
-	 *             loading.hide();
-	 *             weui.toast('提交成功', 3000);
+	 *             .loading.hide();
+	 *             weui..toast('提交成功', 3000);
 	 *         }, 1500);
 	 *     }
 	 *     // return true; // 当return true时，不会显示错误
@@ -3142,19 +3142,19 @@
 	 *        // `this` 是轮询到的文件, `files` 是所有文件
 	 *
 	 *        if(["image/jpg", "image/jpeg", "image/png", "image/gif"].indexOf(this.type) < 0){
-	 *            weui.alert_o('请上传图片');
+	 *            weui..alert('请上传图片');
 	 *            return false; // 阻止文件添加
 	 *        }
 	 *        if(this.size > 10 * 1024 * 1024){
-	 *            weui.alert_o('请上传不超过10M的图片');
+	 *            weui..alert('请上传不超过10M的图片');
 	 *            return false;
 	 *        }
 	 *        if (files.length > 5) { // 防止一下子选择过多文件
-	 *            weui.alert_o('最多只能上传5张图片，请重新选择');
+	 *            weui..alert('最多只能上传5张图片，请重新选择');
 	 *            return false;
 	 *        }
 	 *        if (uploadCount + 1 > 5) {
-	 *            weui.alert_o('最多只能上传5张图片');
+	 *            weui..alert('最多只能上传5张图片');
 	 *            return false;
 	 *        }
 	 *
@@ -3374,7 +3374,7 @@
 /* 23 */
 /***/ function(module, exports) {
 
-	module.exports = "<li class=\"weui-uploader__file weui-uploader__file_status\" data-id=\"<%= id %>\"> <div class=weui-uploader__file-content> <i class=weui-loading style=width:30px;height:30px></i> </div> </li> ";
+	module.exports = "<li class=\"weui-uploader__file weui-uploader__file_status\" data-id=\"<%= id %>\"> <div class=weui-uploader__file-content> <i class=weui-.loading style=width:30px;height:30px></i> </div> </li> ";
 
 /***/ },
 /* 24 */
@@ -4007,7 +4007,7 @@
 	        hide();
 	    }).on('click', '.weui-picker__action', function () {
 	        hide();
-	    }).on('click', '#weui-picker-confirm', function () {
+	    }).on('click', '#weui-picker-.confirm', function () {
 	        defaults.onConfirm(result);
 	    });
 
@@ -4621,7 +4621,7 @@
 /* 30 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"<%= className %>\"> <div class=weui-mask></div> <div class=weui-picker> <div class=weui-picker__hd> <a href=javascript:; data-action=cancel class=weui-picker__action>取消</a> <a href=javascript:; data-action=select class=weui-picker__action id=weui-picker-confirm>确定</a> </div> <div class=weui-picker__bd></div> </div> </div> ";
+	module.exports = "<div class=\"<%= className %>\"> <div class=weui-mask></div> <div class=weui-picker> <div class=weui-picker__hd> <a href=javascript:; data-action=cancel class=weui-picker__action>取消</a> <a href=javascript:; data-action=select class=weui-picker__action id=weui-picker-.confirm>确定</a> </div> <div class=weui-picker__bd></div> </div> </div> ";
 
 /***/ },
 /* 31 */
@@ -4662,7 +4662,7 @@
 	 * var gallery = weui.gallery(url, {
 	 *     className: 'custom-classname',
 	 *     onDelete: function(){
-	 *         if(confirm('确定删除该图片？')){ console.log('删除'); }
+	 *         if(.confirm('确定删除该图片？')){ console.log('删除'); }
 	 *         gallery.hide(function() {
 	 *              console.log('`gallery` has been hidden');
 	 *          });

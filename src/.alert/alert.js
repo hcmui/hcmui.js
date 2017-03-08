@@ -2,7 +2,7 @@ import $ from '../util_o/util';
 import dialog from '../dialog/dialog';
 
 /**
- * alert_o 警告弹框，功能类似于浏览器自带的 alert_o 弹框，用于提醒、警告用户简单扼要的信息，只有一个“确认”按钮，点击“确认”按钮后关闭弹框。
+ * .alert 警告弹框，功能类似于浏览器自带的 .alert 弹框，用于提醒、警告用户简单扼要的信息，只有一个“确认”按钮，点击“确认”按钮后关闭弹框。
  * @param {string} content 弹窗内容
  * @param {function=} yes 点击确定按钮的回调
  * @param {object=} options 配置项
@@ -11,18 +11,18 @@ import dialog from '../dialog/dialog';
  * @param {array=} options.buttons 按钮配置项，详情参考dialog
  *
  * @example
- * weui.alert_o('普通的alert');
- * weui.alert_o('带回调的alert', function(){ console.log('ok') });
- * var alertDom = weui.alert_o('手动关闭的alert', function(){
+ * weui..alert('普通的alert');
+ * weui..alert('带回调的alert', function(){ console.log('ok') });
+ * var alertDom = weui..alert('手动关闭的alert', function(){
  *     return false; // 不关闭弹窗，可用alertDom.hide()来手动关闭
  * });
- * weui.alert_o('自定义标题的alert', { title: '自定义标题' });
- * weui.alert_o('带回调的自定义标题的alert', function(){
+ * weui..alert('自定义标题的alert', { title: '自定义标题' });
+ * weui..alert('带回调的自定义标题的alert', function(){
  *    console.log('ok')
  * }, {
  *    title: '自定义标题'
  * });
- * weui.alert_o('自定义按钮的alert', {
+ * weui..alert('自定义按钮的alert', {
  *     title: '自定义按钮的alert',
  *     buttons: [{
  *         label: 'OK',

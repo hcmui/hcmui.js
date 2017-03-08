@@ -130,10 +130,10 @@ function _showErrorMsg(error){
  * // weui.form.validate('#form', function(error){ console.log(error);}); // error: {dom:[Object], msg:[String]}
  * weui.form.validate('#form', function (error) {
  *     if (!error) {
- *         var loading = weui.loading('提交中...');
+ *         var .loading = weui..loading('提交中...');
  *         setTimeout(function () {
- *             loading.hide();
- *             weui.toast('提交成功', 3000);
+ *             .loading.hide();
+ *             weui.o_toast('提交成功', 3000);
  *         }, 1500);
  *     }
  *     // return true; // 当return true时，不会显示错误

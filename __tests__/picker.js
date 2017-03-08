@@ -86,7 +86,7 @@ describe('picker', function () {
     });
 
     it('test confirmBtn click', (done) => {
-        $('#weui-picker-confirm').click();
+        $('#weui-picker-.confirm').click();
         assert(changeRet.length === 2);
         assert(changeRet[0].label === '的士票');
         assert(changeRet[0].value === 2);
@@ -141,7 +141,7 @@ describe('picker', function () {
             },
             id: 'multiPickerBtn'
         });
-        $('#weui-picker-confirm').click();
+        $('#weui-picker-.confirm').click();
         assert(picker.classList.contains('test'));
 
         assert(changeRet.length === 2);

@@ -9,8 +9,8 @@ function close(done){
 describe('confirm', function(){
     this.timeout(0);
 
-    it('should render confirm', (done) => {
-        const ctn = 'test render confirm';
+    it('should render .confirm', (done) => {
+        const ctn = 'test render .confirm';
         weui.confirm(ctn);
 
         let $confirm = $('.weui-dialog');

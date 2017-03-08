@@ -4,102 +4,12 @@
 
 import angular from 'angular'
 import moduleUtil from '../util/util'
+import moduleDialog from '../dialog/dialog'
 
 import notify_tpl from './notify_tpl.html'
 
-
-function hcmuiDialogDefaultController($scope) {
-    $scope.$ctrl = this;
-}
-hcmuiDialogDefaultController.$inject = ['$scope'];
-
-
-function hcmuiNotify($hcmuiUtil, $compile, $controller, $rootScope, $q) {
+function hcmuiNotify($hcmuiDialog) {
     let service = {};
-
-    function showDialog(options) {
-        /**
-         * className:
-         * template:模板
-         * controller:
-         * mask:
-         */
-
-        options = angular.extend({
-            className: '',
-            mask: true,
-            template: '',
-            controller: 'HcmuiDialogDefaultController'
-        }, options);
-
-        let _defer = $q.defer();
-
-        let _mask = angular.element('<div class="weui-mask"></div>');
-
-
-        let _dialog = angular
-            .element('<div class="weui-dialog"></div>')
-            .append(options.template);
-
-        if($hcmuiUtil.isAndroid()){
-            _dialog.addClass('weui-skin_android');
-        }
-
-        let _wrapper = angular.element(`<div class='${options.className}'></div>`);
-        options.mask && _wrapper.append(_mask);
-        _wrapper
-            .append(_dialog);
-
-
-        let _scope = $rootScope.$new();
-        _dialog = $compile(_dialog)(_scope);
-
-
-        let invokeCtrl = $controller(options.controller, {$scope: _scope}, true);
-        let ctrl = invokeCtrl();
-
-        let _dialog_close = function () {
-            if (options.mask) {
-                _mask.addClass('weui-animate-fade-out').on('animationend webkitAnimationEnd', function () {
-                    _mask.remove();
-                });
-            }
-            _dialog
-                .addClass('weui-animate-fade-out')
-                .on('animationend webkitAnimationEnd', function () {
-                    _wrapper.remove();
-                });
-        };
-
-        ctrl.$dialogOk = function (data) {
-            _defer.resolve(data);
-            _dialog_close();
-        };
-
-        ctrl.$dialogCancel = function (data) {
-            _defer.reject(data);
-            _dialog_close();
-        };
-        ctrl.$btnClick = function (_btn, _event) {
-            if (_btn.onClick) {
-                _btn.onClick(_event);
-            } else {
-                if (_btn.type === 'cancel') {
-                    ctrl.$dialogCancel(_event);
-                } else {
-                    ctrl.$dialogOk(_event);
-                }
-            }
-        };
-
-        _dialog.data('$ngControllerController', ctrl);
-
-        let _parent = angular.element(document.getElementsByTagName('body'));
-        _mask.addClass('weui-animate-fade-in');
-        _dialog.addClass('weui-animate-fade-in');
-        _parent.append(_wrapper);
-        return _defer.promise;
-    }
 
     service.alert = function (content, options) {
         /**
@@ -125,27 +35,20 @@ function hcmuiNotify($hcmuiUtil, $compile, $controller, $rootScope, $q) {
          */
         options = angular.extend({
             title: null,
-            content: '',
-            className: '',
+            content: content||'',
+            template: notify_tpl,
+            className: (options&&options.className) || '',
+            mask: true,
             buttons: [{
                 label: '确定',
                 class: 'primary',
                 type: 'ok'
             }]
         }, options);
-        return showDialog({
-            template: notify_tpl,
-            className: options.className || '',
-            mask: true,
-            controller: ['$scope', function ($scope) {
-                $scope.$ctrl = this;
-                this.content = content;
-                this.options = angular.extend({}, options);
-            }]
-        });
+        return $hcmuiDialog.showDialog(options);
     };
 
-    service.confirm=function(content,options){
+    service.confirm = function (content, options) {
         /**
          * 确认弹窗
          * @param {string} content 弹窗内容
@@ -155,16 +58,16 @@ function hcmuiNotify($hcmuiUtil, $compile, $controller, $rootScope, $q) {
          * @param {array=} options.buttons 按钮配置项，详情参考dialog
          *
          * @example
-         * weui.confirm('普通的confirm');
-         * weui.confirm('自定义标题的confirm', { title: '自定义标题' });
-         * weui.confirm('带回调的confirm', function(){ console.log('yes') }, function(){ console.log('no') });
-         * var confirmDom = weui.confirm('手动关闭的confirm', function(){
+         * weui..confirm('普通的confirm');
+         * weui..confirm('自定义标题的confirm', { title: '自定义标题' });
+         * weui..confirm('带回调的confirm', function(){ console.log('yes') }, function(){ console.log('no') });
+         * var confirmDom = weui..confirm('手动关闭的confirm', function(){
          *     return false; // 不关闭弹窗，可用confirmDom.hide()来手动关闭
          * });
-         * weui.confirm('带回调的自定义标题的confirm', function(){ console.log('yes') }, function(){ console.log('no') }, {
+         * weui..confirm('带回调的自定义标题的confirm', function(){ console.log('yes') }, function(){ console.log('no') }, {
          *     title: '自定义标题'
          * });
-         * weui.confirm('自定义按钮的confirm', {
+         * weui..confirm('自定义按钮的confirm', {
          *     title: '自定义按钮的confirm',
          *     buttons: [{
          *         label: 'NO',
@@ -179,28 +82,20 @@ function hcmuiNotify($hcmuiUtil, $compile, $controller, $rootScope, $q) {
          */
         options = angular.extend({
             title: null,
-            content: '',
-            className: '',
+            content: content||'',
+            template: notify_tpl,
+            className: (options&&options.className)||'',
             buttons: [{
                 label: '取消',
                 class: 'default',
                 type: 'cancel'
-            },{
+            }, {
                 label: '确定',
                 class: 'primary',
                 type: 'ok'
             }]
         }, options);
-        return showDialog({
-            template: notify_tpl,
-            className: options.className || '',
-            mask: true,
-            controller: ['$scope', function ($scope) {
-                $scope.$ctrl = this;
-                this.content = content;
-                this.options = angular.extend({}, options);
-            }]
-        });
+        return $hcmuiDialog.showDialog(options);
 
     };
 
@@ -208,12 +103,12 @@ function hcmuiNotify($hcmuiUtil, $compile, $controller, $rootScope, $q) {
 
 }
 
-hcmuiNotify.$inject = ['$hcmuiUtil', '$compile', '$controller', '$rootScope', '$q'];
+hcmuiNotify.$inject = ['$hcmuiDialog'];
 
 
 export default angular
     .module('hcmui.notify', [
+        moduleDialog.name,
         moduleUtil.name
     ])
-    .controller('HcmuiDialogDefaultController', hcmuiDialogDefaultController)
     .factory('$hcmuiNotify', hcmuiNotify)

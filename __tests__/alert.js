@@ -6,8 +6,8 @@ function close(done){
 describe('alert', function(){
     this.timeout(0);
 
-    it('should render alert_o', (done) => {
-        const ctn = 'test render alert_o';
+    it('should render .alert', (done) => {
+        const ctn = 'test render .alert';
         weui.alert(ctn);
 
         let $alert = $('.weui-dialog');

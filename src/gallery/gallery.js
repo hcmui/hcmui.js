@@ -14,7 +14,7 @@ let _sington;
  * var gallery = weui.gallery(url, {
  *     className: 'custom-classname',
  *     onDelete: function(){
- *         if(confirm('确定删除该图片？')){ console.log('删除'); }
+ *         if(o_confirm('确定删除该图片？')){ console.log('删除'); }
  *         gallery.hide(function() {
  *              console.log('`gallery` has been hidden');
  *          });

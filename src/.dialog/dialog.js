@@ -24,11 +24,11 @@ let _sington;
  *     buttons: [{
  *         label: '取消',
  *         type: 'default',
- *         onClick: function () { alert_o('取消') }
+ *         onClick: function () { .alert('取消') }
  *     }, {
  *         label: '确定',
  *         type: 'primary',
- *         onClick: function () { alert_o('确定') }
+ *         onClick: function () { .alert('确定') }
  *     }]
  * });
  *

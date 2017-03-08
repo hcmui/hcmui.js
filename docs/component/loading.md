@@ -18,7 +18,7 @@ var loading = weui.loading('loading', {
 });
 setTimeout(function () {
     loading.hide(function() {
-         console.log('`loading` has been hidden');
+         console.log(.loading);
      });
 }, 3000);
 ```

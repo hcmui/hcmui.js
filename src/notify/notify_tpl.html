@@ -1,10 +1,11 @@
-<div class="weui-dialog__hd"><strong class="weui-dialog__title">{{$ctrl.options.title}}</strong></div>
-<div class="weui-dialog__bd">{{$ctrl.content}}</div>
-<div class="weui-dialog__ft">
-    <a ng-repeat="_btn in $ctrl.options.buttons"
-       href="javascript:;"
-       class="weui-dialog__btn weui-dialog__btn_{{_btn.class}}"
-       ng-click="$ctrl.$btnClick(_btn,$event)"
-    >{{_btn.label}}</a>
+<div class="weui-dialog">
+    <div class="weui-dialog__hd"><strong class="weui-dialog__title">{{$options.title}}</strong></div>
+    <div class="weui-dialog__bd">{{$options.content}}</div>
+    <div class="weui-dialog__ft">
+        <a ng-repeat="_btn in $options.buttons"
+           href="javascript:;"
+           class="weui-dialog__btn weui-dialog__btn_{{_btn.class}}"
+           ng-click="$btnClick(_btn,$event)"
+        >{{_btn.label}}</a>
+    </div>
 </div>
-

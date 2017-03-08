@@ -4,18 +4,18 @@ import tpl from './loading.html';
 let _sington;
 
 /**
- * loading
+ * .loading
  * @param {string} content loading的文字
  * @param {object=} options 配置项
  * @param {string=} options.className 自定义类名
  *
  * @example
- * var loading = weui.loading('loading', {
+ * var .loading = weui..loading('.loading', {
  *     className: 'custom-classname'
  * });
  * setTimeout(function () {
- *     loading.hide(function() {
- *          console.log('`loading` has been hidden');
+ *     .loading.hide(function() {
+ *          console.log('`.loading` has been hidden');
  *      });
  * }, 3000);
  */
@@ -28,7 +28,7 @@ function loading(content = '', options = {}) {
     }, options);
 
     const $loadingWrap = $($.render(tpl, options));
-    const $loading = $loadingWrap.find('.weui-toast');
+    const $loading = $loadingWrap.find('.weui-.toast');
     const $mask = $loadingWrap.find('.weui-mask');
 
     function _hide(callback) {

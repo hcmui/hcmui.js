@@ -40,19 +40,19 @@ let _id = 0;
  *        // `this` 是轮询到的文件, `files` 是所有文件
  *
  *        if(["image/jpg", "image/jpeg", "image/png", "image/gif"].indexOf(this.type) < 0){
- *            weui.alert_o('请上传图片');
+ *            weui..alert('请上传图片');
  *            return false; // 阻止文件添加
  *        }
  *        if(this.size > 10 * 1024 * 1024){
- *            weui.alert_o('请上传不超过10M的图片');
+ *            weui..alert('请上传不超过10M的图片');
  *            return false;
  *        }
  *        if (files.length > 5) { // 防止一下子选择过多文件
- *            weui.alert_o('最多只能上传5张图片，请重新选择');
+ *            weui..alert('最多只能上传5张图片，请重新选择');
  *            return false;
  *        }
  *        if (uploadCount + 1 > 5) {
- *            weui.alert_o('最多只能上传5张图片');
+ *            weui..alert('最多只能上传5张图片');
  *            return false;
  *        }
  *
